@@ -1,6 +1,6 @@
-package net.dark_roleplay.claytodust.common.items;
+package claytodust.common.items;
 
-import net.dark_roleplay.claytodust.handler.CTDCreativeTabs;
+import claytodust.handler.CTDCreativeTabs;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.state.IBlockState;
@@ -17,16 +17,16 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class MagnifyingGlass extends Item{
+public class MagnifyingGlass extends Item {
 	
-	public MagnifyingGlass(String registryName){
+	public MagnifyingGlass(String registryName) {
 		this.setRegistryName(registryName);
 		this.setUnlocalizedName(registryName);
 		this.setCreativeTab(CTDCreativeTabs.tabCTD);
 	}
 
 	@Override
-	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){
+	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		 if (world.isRemote){
 			return EnumActionResult.SUCCESS;
 		}
@@ -63,4 +63,5 @@ public class MagnifyingGlass extends Item{
 
 		return EnumActionResult.SUCCESS;
 	}
+
 }

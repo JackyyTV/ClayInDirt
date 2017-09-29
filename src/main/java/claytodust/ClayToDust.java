@@ -1,6 +1,6 @@
-package net.dark_roleplay.claytodust;
+package claytodust;
 
-import net.dark_roleplay.claytodust.common.CTDCommonProxy;
+import claytodust.common.CTDCommonProxy;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 
@@ -10,6 +10,6 @@ public class ClayToDust{
 	@Mod.Instance(CTDInfo.MODID)
 	public static ClayToDust instance;
 
-//	@SidedProxy(serverSide = "com.latmod.claytodust.ClayToDustCommon", clientSide = "com.latmod.claytodust.client.ClayToDustClient")
-//	public static CTDCommonProxy PROXY;
+    @SidedProxy(serverSide = "claytodust.client.CTDClientProxy", clientSide = "claytodust.common.CTDCommonProxy")
+    public static CTDCommonProxy PROXY;
 }

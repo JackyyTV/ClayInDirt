@@ -1,9 +1,9 @@
-package net.dark_roleplay.claytodust.common.blocks;
+package claytodust.common.blocks;
 
 import java.util.Random;
 
-import net.dark_roleplay.claytodust.common.tile_entities.TE_FirePit;
-import net.dark_roleplay.claytodust.handler.CTDCreativeTabs;
+import claytodust.common.tiles.TE_FirePit;
+import claytodust.handler.CTDCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -28,7 +28,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 /**
  * @author LatvianModder
  */
-public class FirePit extends Block{
+public class FirePit extends Block {
 	
 	public static final PropertyBool BURNING = PropertyBool.create("burning");
 

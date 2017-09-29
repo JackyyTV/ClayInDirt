@@ -10,23 +10,36 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 
-version = "1.0"
-group = "net.dar_roleplay.claytodust"
-archivesBaseName = "claytodust"
+version = "${mc_version}-${mod_version}"
+group = "claytodust"
+archivesBaseName = "ClayToDust"
 
-sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+sourceCompatibility = targetCompatibility = '1.8'
 compileJava {
     sourceCompatibility = targetCompatibility = '1.8'
 }
 
 minecraft {
-    version = "1.12-14.21.1.2443"
+    version = "${forge_version}"
     runDir = "run"
-    mappings = "snapshot_20170624"
+    mappings = "${mappings_version}"
+}
+
+repositories {
+    maven {
+		name = "JEI Maven"
+        url = "http://dvs1.progwml6.com/files/maven"
+    }
+	maven {
+		name = "HWYLA Maven"
+		url = "http://tehnut.info/maven"
+	}
 }
 
 dependencies {
-
+	deobfCompile "mezz.jei:jei_1.12.2:4.7.+:api"
+	runtime "mezz.jei:jei_1.12.2:4.7.+"
+	deobfCompile "mcp.mobius.waila:Hwyla:1.8.+"
 }
 
 processResources {

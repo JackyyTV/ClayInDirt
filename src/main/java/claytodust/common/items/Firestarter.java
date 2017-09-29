@@ -1,8 +1,8 @@
-package net.dark_roleplay.claytodust.common.items;
+package claytodust.common.items;
 
 import java.util.Random;
 
-import net.dark_roleplay.claytodust.handler.CTDCreativeTabs;
+import claytodust.handler.CTDCreativeTabs;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;

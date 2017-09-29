@@ -1,4 +1,4 @@
-package net.dark_roleplay.claytodust;
+package claytodust;
 
 public class CTDInfo {
 

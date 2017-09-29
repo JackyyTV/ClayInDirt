@@ -1,4 +1,4 @@
-package net.dark_roleplay.claytodust.handler;
+package claytodust.handler;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;

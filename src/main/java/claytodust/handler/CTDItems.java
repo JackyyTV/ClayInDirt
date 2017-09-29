@@ -1,8 +1,8 @@
-package net.dark_roleplay.claytodust.handler;
+package claytodust.handler;
 
-import net.dark_roleplay.claytodust.common.items.Firestarter;
-import net.dark_roleplay.claytodust.common.items.Hammer;
-import net.dark_roleplay.claytodust.common.items.MagnifyingGlass;
+import claytodust.common.items.Firestarter;
+import claytodust.common.items.Hammer;
+import claytodust.common.items.MagnifyingGlass;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraftforge.common.util.EnumHelper;

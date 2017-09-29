@@ -1,6 +1,6 @@
-package net.dark_roleplay.claytodust.handler;
+package claytodust.handler;
 
-import net.dark_roleplay.claytodust.common.blocks.FirePit;
+import claytodust.common.blocks.FirePit;
 
 public class CTDBlocks {
 

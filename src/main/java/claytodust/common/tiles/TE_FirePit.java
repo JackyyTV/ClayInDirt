@@ -1,18 +1,21 @@
-package net.dark_roleplay.claytodust.common.tile_entities;
+package claytodust.common.tiles;
 
+import net.minecraft.block.BlockFurnace;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.inventory.ItemStackHelper;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.NonNullList;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 
-public class TE_FirePit extends TileEntity implements ITickable, ISidedInventory{
+public class TE_FirePit extends TileEntity implements ITickable, ISidedInventory {
 	
 	private NonNullList<ItemStack> furnaceItemStacks = NonNullList.withSize(3, ItemStack.EMPTY);
 	private int furnaceBurnTime;

@@ -2,14 +2,14 @@
 	{
 		"modid": "claytodust",
 		"name": "Clay to Dust",
-		"description": "",
+		"description": "A mod made for Kaperios' modpack!",
 		"version": "${version}",
 		"mcversion": "1.12",
 		"url": "",
 		"updateUrl": "",
-		"authorList": ["JTK222"],
-		"credits": "",
-		"logoFile": "assets/claytodust/textures/logo.png",
+		"authorList": ["Jacky1356400"],
+		"credits": "JTK222 and LatvianModder",
+		"logoFile": "",
 		"screenshots": [],
 		"parent": "",
 		"dependencies": []
