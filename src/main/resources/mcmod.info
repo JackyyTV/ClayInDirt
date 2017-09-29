@@ -1,0 +1,17 @@
+[
+	{
+		"modid": "claytodust",
+		"name": "Clay to Dust",
+		"description": "",
+		"version": "${version}",
+		"mcversion": "1.12",
+		"url": "https://minecraft.curseforge.com/projects/clay-to-dust",
+		"updateUrl": "",
+		"authorList": ["LatvianModder"],
+		"credits": "",
+		"logoFile": "assets/claytodust/textures/logo.png",
+		"screenshots": [],
+		"parent": "",
+		"dependencies": []
+	}
+]

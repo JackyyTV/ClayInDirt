@@ -1,0 +1,13 @@
+{
+	"type": "forge:ore_shaped",
+	"group": "claytodust:firestarter",
+	"result": {"item": "string_firestarter"},
+	"pattern": [
+		"SSS",
+		"GSG"
+	],
+	"key": {
+		"S": {"type": "forge:ore_dict", "ore": "stickWood"},
+		"G": {"type": "forge:ore_dict", "ore": "string"}
+	}
+}

@@ -1,0 +1,10 @@
+{
+	"parent": "block/cauldron_empty",
+	"textures": {
+		"particle": "claytodust:blocks/fire_pit_side",
+		"top": "claytodust:blocks/fire_pit_top",
+		"bottom": "claytodust:blocks/fire_pit_bottom",
+		"side": "claytodust:blocks/fire_pit_side",
+		"inside": "claytodust:blocks/fire_pit_inner"
+	}
+}

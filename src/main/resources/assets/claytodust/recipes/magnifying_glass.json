@@ -1,0 +1,13 @@
+{
+	"type": "forge:ore_shaped",
+	"group": "claytodust:firestarter",
+	"result": {"item": "magnifying_glass"},
+	"pattern": [
+		" G",
+		"S "
+	],
+	"key": {
+		"G": {"type": "forge:ore_dict", "ore": "blockGlass"},
+		"S": {"type": "forge:ore_dict", "ore": "stickWood"}
+	}
+}
