@@ -1,61 +1,45 @@
 buildscript {
-	repositories {
-		jcenter()
-		maven { url = "http://files.minecraftforge.net/maven" }
-	}
-	dependencies {
-		classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
-	}
+    repositories {
+        jcenter()
+        maven { url = "http://files.minecraftforge.net/maven" }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+    }
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-version = System.properties['mod_version']
-if (version == null) {
-	version = "Dev"
-}
-group = "com.latmod.clay2dust"
-archivesBaseName = "ClayToDust"
 
-sourceCompatibility = targetCompatibility = "1.8"
+version = "1.0"
+group = "net.dar_roleplay.claytodust"
+archivesBaseName = "claytodust"
+
+sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 compileJava {
-	sourceCompatibility = targetCompatibility = "1.8"
+    sourceCompatibility = targetCompatibility = '1.8'
 }
 
 minecraft {
-	version = "1.12.1-14.22.0.2474"
-	runDir = "run"
-	mappings = "snapshot_20170908"
-}
-
-repositories {
-	ivy { name "com.latmod.mods"; artifactPattern "http://mods.latmod.com/[module]/[revision]/[module]-[revision](-[classifier]).[ext]" }
+    version = "1.12-14.21.1.2443"
+    runDir = "run"
+    mappings = "snapshot_20170624"
 }
 
 dependencies {
-	compile 'com.latmod.mods:FTBLib:4.1.0:api'
-}
 
-sourceSets {
-	main {
-		java {
-			srcDir 'src/main/java'
-		}
-		resources {
-			srcDir 'src/main/resources'
-		}
-	}
 }
 
 processResources {
-	inputs.property "version", project.version
-	inputs.property "mcversion", project.minecraft.version
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
 
-	from(sourceSets.main.resources.srcDirs) {
-		include 'mcmod.info'
-		expand 'version': project.version, 'mcversion': project.minecraft.version
-	}
-
-	from(sourceSets.main.resources.srcDirs) {
-		exclude 'mcmod.info'
-	}
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+                
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+        
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
 }
