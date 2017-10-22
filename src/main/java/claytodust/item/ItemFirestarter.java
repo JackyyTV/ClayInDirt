@@ -1,9 +1,8 @@
-package claytodust.common.items;
+package claytodust.item;
 
-import java.util.Random;
-
-import claytodust.handler.CTDCreativeTabs;
+import claytodust.ClayToDust;
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
@@ -16,19 +15,29 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class Firestarter extends Item{
+import java.util.Random;
+
+public class ItemFirestarter extends Item{
 	
 	private float propability;
 	
-	public Firestarter(String registryName, int durability, float propability){
-		this.setRegistryName(registryName);
-		this.setUnlocalizedName(registryName);
-		this.setMaxDamage(durability);
-		this.setCreativeTab(CTDCreativeTabs.tabCTD);
-		this.setMaxStackSize(1);
+	public ItemFirestarter(String registryName, int durability, float propability){
+		setRegistryName(ClayToDust.MODID + ":" + registryName);
+		setUnlocalizedName(ClayToDust.MODID + "." + registryName);
+		setMaxDamage(durability);
+		setCreativeTab(ClayToDust.TAB);
+		setMaxStackSize(1);
 		this.propability = propability;
 	}
+
+    @SideOnly(Side.CLIENT)
+    public void initModel() {
+        ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
+    }
 
 	@Override
 	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ){

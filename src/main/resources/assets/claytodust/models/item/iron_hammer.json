@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "claytodust:items/magnifying_glass"
+    "layer0": "claytodust:items/iron_hammer"
   }
 }

@@ -1,51 +1,54 @@
-package claytodust.common.blocks;
+package claytodust.block;
 
-import java.util.Random;
-
-import claytodust.common.tiles.TE_FirePit;
-import claytodust.handler.CTDCreativeTabs;
+import claytodust.ClayToDust;
+import claytodust.tile.TileFirePit;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.item.Item;
 import net.minecraft.stats.StatList;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockRenderLayer;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-/**
- * @author LatvianModder
- */
-public class FirePit extends Block {
+import java.util.Random;
+
+public class BlockFirePit extends Block {
 	
 	public static final PropertyBool BURNING = PropertyBool.create("burning");
 
-	public FirePit(String registryName){
+	public BlockFirePit() {
 		super(Material.ROCK, MapColor.STONE);
-		this.setRegistryName(registryName);
-		this.setUnlocalizedName(registryName);
-		this.setCreativeTab(CTDCreativeTabs.tabCTD);
-		this.setDefaultState(blockState.getBaseState().withProperty(BURNING, false));
+		setRegistryName(ClayToDust.MODID + ":fire_pit");
+		setUnlocalizedName(ClayToDust.MODID + ".fire_pit");
+		setHardness(1.0f);
+		setResistance(1.0f);
+		setCreativeTab(ClayToDust.TAB);
+		setDefaultState(blockState.getBaseState().withProperty(BURNING, false));
 	}
+
+    @SideOnly(Side.CLIENT)
+    public void initModel() {
+        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, new ModelResourceLocation(getRegistryName(), "inventory"));
+    }
 
 	@Override
 	public BlockStateContainer createBlockState(){
 		return new BlockStateContainer(this, BURNING);
 	}
 
-	@Override
+	@Override @SuppressWarnings("deprecation")
 	public IBlockState getStateFromMeta(int meta){
 		return getDefaultState();
 	}
@@ -62,20 +65,20 @@ public class FirePit extends Block {
 
 	@Override
 	public TileEntity createTileEntity(World world, IBlockState state){
-		return new TE_FirePit();
+		return new TileFirePit();
 	}
 
-	@Override
+	@Override @SuppressWarnings("deprecation")
 	public boolean isFullCube(IBlockState state){
 		return false;
 	}
 
-	@Override
+	@Override @SuppressWarnings("deprecation")
 	public boolean isOpaqueCube(IBlockState state){
 		return false;
 	}
 
-	@Override
+	@Override @SuppressWarnings("deprecation")
 	public boolean isSideSolid(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side){
 		return true;
 	}
@@ -113,8 +116,8 @@ public class FirePit extends Block {
 		}else{
 			TileEntity tileentity = worldIn.getTileEntity(pos);
 
-			if (tileentity instanceof TE_FirePit){
-				playerIn.displayGUIChest((TE_FirePit) tileentity);
+			if (tileentity instanceof TileFirePit){
+				playerIn.displayGUIChest((TileFirePit) tileentity);
 				playerIn.addStat(StatList.FURNACE_INTERACTION);
 			}
 
@@ -126,19 +129,19 @@ public class FirePit extends Block {
 	public void breakBlock(World world, BlockPos pos, IBlockState state){
 		TileEntity tileentity = world.getTileEntity(pos);
 
-		if (tileentity instanceof TE_FirePit){
-			((TE_FirePit) tileentity).breakBlock();
+		if (tileentity instanceof TileFirePit){
+			((TileFirePit) tileentity).breakBlock();
 		}
 
 		super.breakBlock(world, pos, state);
 	}
 
-	@Override
+	@Override @SuppressWarnings("deprecation")
 	public IBlockState getActualState(IBlockState state, IBlockAccess world, BlockPos pos){
 		TileEntity tileEntity = world.getTileEntity(pos);
 
-		if (tileEntity instanceof TE_FirePit){
-			return state.withProperty(BURNING, ((TE_FirePit) tileEntity).isBurning());
+		if (tileEntity instanceof TileFirePit){
+			return state.withProperty(BURNING, ((TileFirePit) tileEntity).isBurning());
 		}
 
 		return state;

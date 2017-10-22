@@ -3,7 +3,7 @@
 		"modid": "claytodust",
 		"name": "Clay to Dust",
 		"description": "A mod made for Kaperios' modpack!",
-		"version": "${version}",
+		"version": "1.0",
 		"mcversion": "1.12",
 		"url": "",
 		"updateUrl": "",
