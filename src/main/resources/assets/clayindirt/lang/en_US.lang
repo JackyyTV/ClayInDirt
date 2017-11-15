@@ -1,0 +1,10 @@
+# Creative Tabs
+itemGroup.clayindirt=Clay in Dirt
+
+# Blocks
+tile.clayindirt.fire_pit.name=Fire Pit
+
+# Items
+item.clayindirt.basic_firestarter.name=Basic Firestarter
+item.clayindirt.string_firestarter.name=Firestarter with a String
+item.clayindirt.magnifying_glass.name=Magnifying Glass

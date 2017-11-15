@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "clayindirt:items/magnifying_glass"
+  }
+}
