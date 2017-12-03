@@ -3,6 +3,7 @@ package clayindirt;
 import clayindirt.block.BlockFirePit;
 import clayindirt.item.ItemFirestarter;
 import clayindirt.item.ItemMagnifyingGlass;
+import clayindirt.tile.TileFirePit;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -26,6 +27,7 @@ public class ModRegistry {
     @SubscribeEvent
     public void onBlockRegistry(RegistryEvent.Register<Block> e) {
         e.getRegistry().register(FIREPIT);
+        GameRegistry.registerTileEntity(TileFirePit.class, FIREPIT.getRegistryName().toString());
     }
 
     @SubscribeEvent
