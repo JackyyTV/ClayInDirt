@@ -1,8 +1,11 @@
 package clayindirt.proxy;
 
 import clayindirt.ModRegistry;
+import clayindirt.client.RenderFirePit;
+import clayindirt.tile.TileFirePit;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -19,6 +22,7 @@ public class ClientProxy extends CommonProxy {
     @SubscribeEvent
     public void onModelRegistry(ModelRegistryEvent e) {
         ModRegistry.initModels(e);
+        ClientRegistry.bindTileEntitySpecialRenderer(TileFirePit.class, new RenderFirePit());
     }
 
     @Override

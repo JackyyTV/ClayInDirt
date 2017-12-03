@@ -1,19 +1,28 @@
 {
-  "forge_marker": 1,
-  "defaults": {
-    "model": "clayindirt:fire_pit"
-  },
-  "variants": {
-    "inventory": {
-      "transform": "forge:default-block"
-    },
-    "burning": {
-      "true": {
-        "textures": {
-          "inside": "clayindirt:blocks/fire_pit_inner_burning"
-        }
-      },
-      "false": {}
-    }
-  }
+	"forge_marker": 1,
+	"defaults": {
+		"transform": "forge:default-block"
+	},
+	"variants": {
+		"burning": {
+			"true": {
+				"textures": {
+					"fuel": "clayindirt:blocks/fire_pit_inner_burning"
+				}
+			},
+			"false": {
+				"textures": {
+					"fuel": "blocks/coal_block"
+				}
+			}
+		},
+		"fueled": {
+			"true": {
+				"model": "clayindirt:fire_pit"
+			},
+			"false": {
+				"model": "clayindirt:fire_pit_empty"
+			}
+		}
+	}
 }
