@@ -23,6 +23,9 @@ minecraft {
     version = "${forge_version}"
     runDir = "run"
     mappings = "${mappings_version}"
+
+    replace '@FINGERPRINT@', project.findProperty('signSHA1')
+    replaceIn "ClayInDirt.java"
 }
 
 repositories {
@@ -45,14 +48,25 @@ dependencies {
 processResources {
     inputs.property "version", project.version
     inputs.property "mcversion", project.minecraft.version
-
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-                
         expand 'version':project.version, 'mcversion':project.minecraft.version
     }
-        
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
 }
+
+task signJar(type: SignJar, dependsOn: reobfJar) {
+    onlyIf {
+		project.hasProperty('keyStore')
+	}
+	keyStore = project.findProperty('keyStore')
+	alias = project.findProperty('keyStoreAlias')
+	storePass = project.findProperty('keyStorePass')
+	keyPass = project.findProperty('keyStoreKeyPass')
+	inputFile = jar.archivePath
+	outputFile = jar.archivePath
+}
+
+build.dependsOn signJar

@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = ClayInDirt.MODID, name = ClayInDirt.MODNAME, version = ClayInDirt.VERSION, acceptedMinecraftVersions = ClayInDirt.MCVERSION, useMetadata = true)
+@Mod(modid = ClayInDirt.MODID, name = ClayInDirt.MODNAME, version = ClayInDirt.VERSION, acceptedMinecraftVersions = ClayInDirt.MCVERSION, certificateFingerprint = "@FINGERPRINT@", useMetadata = true)
 public class ClayInDirt {
 
     public static final String VERSION = "1.0";
