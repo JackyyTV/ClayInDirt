@@ -37,12 +37,21 @@ repositories {
 		name = "HWYLA Maven"
 		url = "http://tehnut.info/maven"
 	}
+	maven {
+		name = "TOP Maven"
+        url = "http://maven.tterrag.com"
+    }
+	maven {
+		name = "CoFH Maven"
+        url = "http://maven.covers1624.net"
+    }
 }
 
 dependencies {
 	deobfCompile "mezz.jei:jei_1.12.2:+:api"
 	runtime "mezz.jei:jei_1.12.2:+"
 	deobfCompile "mcp.mobius.waila:Hwyla:+"
+	deobfCompile "mcjty.theoneprobe:TheOneProbe-1.12:1.12-1.4.+"
 }
 
 processResources {

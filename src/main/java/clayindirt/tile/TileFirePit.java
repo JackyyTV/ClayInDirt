@@ -64,7 +64,7 @@ public class TileFirePit extends TileEntity implements ITickable {
 
 	@Override
 	public void update() {
-		if(world.isRemote) return;
+		if (world.isRemote) return;
 		if (isBurning()) {
 			if (burnTime == 0 && !getFuel().isEmpty()) {
 				burnTime = TileEntityFurnace.getItemBurnTime(getFuel());
@@ -72,14 +72,17 @@ public class TileFirePit extends TileEntity implements ITickable {
 			}
 			if (burnTime > 0) {
 				burnTime--;
-
 				if (!getInput().isEmpty() && curSmelt.isEmpty()) {
 					curSmelt = FurnaceRecipes.instance().getSmeltingResult(getInput()).copy();
 					if (!curSmelt.isEmpty() && progress == 0) {
 						progress = 600;
 					}
 				}
-				if(!curSmelt.isEmpty() && progress > 0 && (getOutput().isEmpty() || curSmelt.isItemEqual(getOutput()))) {
+				if (getInput().isEmpty() && !curSmelt.isEmpty()) {
+                    curSmelt = ItemStack.EMPTY;
+				    progress = 0;
+                }
+				if (!curSmelt.isEmpty() && progress > 0 && (getOutput().isEmpty() || curSmelt.isItemEqual(getOutput()))) {
 					if(--progress == 0 && addOutput(curSmelt, true).isEmpty()) {
 						addOutput(curSmelt, false);
 						curSmelt = ItemStack.EMPTY;
@@ -87,8 +90,7 @@ public class TileFirePit extends TileEntity implements ITickable {
 					}
 				}
 			}
-			
-			if(burnTime == 0 && getFuel().isEmpty()) {
+			if (burnTime == 0 && getFuel().isEmpty()) {
 				progress = 0;
 				curSmelt = ItemStack.EMPTY;
 				world.setBlockState(pos, ModRegistry.FIREPIT.getDefaultState());
@@ -112,6 +114,14 @@ public class TileFirePit extends TileEntity implements ITickable {
 		return inv.getStackInSlot(0);
 	}
 
+    public int getBurnTime() {
+        return burnTime;
+    }
+
+	public int getProgress() {
+	    return progress;
+    }
+
 	public ItemStack addFuel(ItemStack fuel, boolean simulate) {
 		ItemStack s = inv.insertItem(1, fuel, simulate);
 		markDirty();
@@ -131,7 +141,15 @@ public class TileFirePit extends TileEntity implements ITickable {
 		return s;
 	}
 
-	public void emptyOuptut() {
+    public void emptyFuel() {
+        inv.setStackInSlot(1, ItemStack.EMPTY);
+    }
+
+    public void emptyInput() {
+        inv.setStackInSlot(0, ItemStack.EMPTY);
+    }
+
+	public void emptyOutput() {
 		inv.setStackInSlot(2, ItemStack.EMPTY);
 	}
 
