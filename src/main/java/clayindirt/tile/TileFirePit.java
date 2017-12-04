@@ -83,7 +83,7 @@ public class TileFirePit extends TileEntity implements ITickable {
 				    progress = 0;
                 }
 				if (!curSmelt.isEmpty() && progress > 0 && (getOutput().isEmpty() || curSmelt.isItemEqual(getOutput()))) {
-					if(--progress == 0 && addOutput(curSmelt, true).isEmpty()) {
+					if (--progress == 0 && addOutput(curSmelt, true).isEmpty()) {
 						addOutput(curSmelt, false);
 						curSmelt = ItemStack.EMPTY;
 						getInput().shrink(1);

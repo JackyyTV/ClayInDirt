@@ -261,18 +261,18 @@ public class BlockFirePit extends Block implements IWailaInfoProvider, ITOPInfoP
         if (te instanceof TileFirePit) {
             TileFirePit firePit = (TileFirePit) te;
             String renderStr = "";
-            if (firePit.getInput() != ItemStack.EMPTY) {
+            if (!firePit.getInput().isEmpty()) {
                 String name = firePit.getInput().getItem().getRegistryName().toString();
                 renderStr += SpecialChars.getRenderString("waila.stack", "1", name, String.valueOf(firePit.getInput().getCount()), String.valueOf(firePit.getInput().getItemDamage()));
             } else renderStr += SpecialChars.getRenderString("waila.stack", "2");
-            if (firePit.getFuel() != ItemStack.EMPTY) {
+            if (!firePit.getFuel().isEmpty()) {
                 String name = firePit.getFuel().getItem().getRegistryName().toString();
                 renderStr += SpecialChars.getRenderString("waila.stack", "1", name, String.valueOf(firePit.getFuel().getCount()), String.valueOf(firePit.getFuel().getItemDamage()));
             } else renderStr += SpecialChars.getRenderString("waila.stack", "2");
             if (accessor.getBlockState().getValue(BURNING)) {
                 renderStr += SpecialChars.getRenderString("waila.progress", String.valueOf((600 - firePit.getProgress())), String.valueOf(600));
             }
-            if (firePit.getOutput() != ItemStack.EMPTY) {
+            if (!firePit.getOutput().isEmpty()) {
                 String name = firePit.getOutput().getItem().getRegistryName().toString();
                 renderStr += SpecialChars.getRenderString("waila.stack", "1", name, String.valueOf(firePit.getOutput().getCount()), String.valueOf(firePit.getOutput().getItemDamage()));
             } else renderStr += SpecialChars.getRenderString("waila.stack", "2");
