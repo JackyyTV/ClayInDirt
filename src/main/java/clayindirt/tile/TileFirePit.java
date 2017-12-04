@@ -72,6 +72,7 @@ public class TileFirePit extends TileEntity implements ITickable {
 			}
 			if (burnTime > 0) {
 				burnTime--;
+
 				if (!getInput().isEmpty() && curSmelt.isEmpty()) {
 					curSmelt = FurnaceRecipes.instance().getSmeltingResult(getInput()).copy();
 					if (!curSmelt.isEmpty() && progress == 0) {
@@ -90,6 +91,7 @@ public class TileFirePit extends TileEntity implements ITickable {
 					}
 				}
 			}
+
 			if (burnTime == 0 && getFuel().isEmpty()) {
 				progress = 0;
 				curSmelt = ItemStack.EMPTY;
@@ -113,7 +115,7 @@ public class TileFirePit extends TileEntity implements ITickable {
 	public ItemStack getInput() {
 		return inv.getStackInSlot(0);
 	}
-
+	
     public int getBurnTime() {
         return burnTime;
     }
@@ -134,23 +136,27 @@ public class TileFirePit extends TileEntity implements ITickable {
 		markDirty();
 		return s;
 	}
-	
+
 	public ItemStack addOutput(ItemStack output, boolean simulate) {
 		ItemStack s = inv.insertItem(2, output, simulate);
 		markDirty();
 		return s;
 	}
 
-    public void emptyFuel() {
-        inv.setStackInSlot(1, ItemStack.EMPTY);
-    }
-
-    public void emptyInput() {
-        inv.setStackInSlot(0, ItemStack.EMPTY);
-    }
-
 	public void emptyOutput() {
 		inv.setStackInSlot(2, ItemStack.EMPTY);
+		markDirty();
+	}
+
+	public void emptyInput() {
+		inv.setStackInSlot(0, ItemStack.EMPTY);
+		markDirty();
+	}
+
+	public void emptyFuel() {
+		inv.setStackInSlot(1, ItemStack.EMPTY);
+		markDirty();
+		world.setBlockState(pos, world.getBlockState(pos).withProperty(BlockFirePit.FUELED, false));
 	}
 
 	@Override
