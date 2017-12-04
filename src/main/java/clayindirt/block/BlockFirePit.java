@@ -65,7 +65,7 @@ public class BlockFirePit extends Block implements IWailaInfoProvider, ITOPInfoP
 		setDefaultState(blockState.getBaseState().withProperty(BURNING, false).withProperty(FUELED, false));
 	}
 
-	@Override
+	@Override @Deprecated
 	public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, @Nullable Entity entityIn, boolean isActualState) {
 		addCollisionBoxToList(pos, entityBox, collidingBoxes, AABB_LEGS);
 		addCollisionBoxToList(pos, entityBox, collidingBoxes, AABB_WALL_WEST);
@@ -84,7 +84,7 @@ public class BlockFirePit extends Block implements IWailaInfoProvider, ITOPInfoP
 		return new BlockStateContainer(this, BURNING, FUELED);
 	}
 
-	@Override
+	@Override @Deprecated
 	public IBlockState getStateFromMeta(int meta) {
 		IBlockState state = getDefaultState();
 		if (meta % 2 == 1) state = state.withProperty(BURNING, true);
@@ -110,22 +110,22 @@ public class BlockFirePit extends Block implements IWailaInfoProvider, ITOPInfoP
 		return new TileFirePit();
 	}
 
-	@Override
+	@Override @Deprecated
 	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
 
-	@Override
+	@Override @Deprecated
 	public boolean isNormalCube(IBlockState state) {
 		return false;
 	}
 
-	@Override
+	@Override @Deprecated
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
 
-	@Override
+	@Override @Deprecated
 	public boolean isSideSolid(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) {
 		return true;
 	}
@@ -213,12 +213,12 @@ public class BlockFirePit extends Block implements IWailaInfoProvider, ITOPInfoP
 		super.breakBlock(world, pos, state);
 	}
 
-	@Override
+	@Override @Deprecated
 	public int getLightValue(IBlockState state) {
 		return state.getValue(BURNING) ? 15 : 0;
 	}
 
-	@Override
+	@Override @Deprecated
 	public int getLightOpacity(IBlockState state) {
 		return 0;
 	}
